@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Aktuální nabídka konkrétních kusů středoevropských vlasů k prodeji.">
+  <title>Vlasy k prodeji | Vlasy Laura</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="navigation.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">Vlasy <span>Laura</span><img class="brand-logo" src="logo.jpg" alt=""></a>
+    <button class="menu-toggle" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Otevřít navigaci"><span></span><span></span><span></span></button>
+    <nav id="main-navigation" aria-label="Hlavní navigace">
+      <a href="index.html">Úvod</a>
+      <a href="metody.html">Metody</a>
+      <a href="cenik.html">Ceník</a>
+      <a href="prodej-vlasu.html" aria-current="page">Vlasy k prodeji</a>
+      <a href="fotogalerie.html">Fotogalerie</a>
+      <a href="reference.html">Reference</a>
+      <a href="pece.html">Péče před a po</a>
+      <a class="nav-contact" href="kontakt.html">Kontakt</a>
+    </nav>
+  </header>
+  <button class="nav-backdrop" type="button" aria-label="Zavřít navigaci" tabindex="-1" hidden></button>
+  <main class="page">
+    <p class="eyebrow">Aktuální nabídka</p>
+    <h1 id="hair-products-title">Vlasy k prodeji</h1>
+    <section class="hair-products" aria-labelledby="hair-products-title">
+      <p class="hair-products-intro">Konkrétní kusy středoevropských vlasů, které jsou nyní v nabídce. Uvedená cena platí za celý kus.</p>
+      <div class="hair-gallery hair-sale-gallery" aria-label="Konkrétní vlasy k prodeji">
+        <figure class="hair-product-card">
+          <button class="hair-photo-button" type="button" aria-label="Zvětšit fotografii středoevropských vlasů, délka 53 cm">
+            <img src="images/prodej%20vlasu%202.webp" alt="Středoevropské vlasy k prodeji, délka 53 cm" loading="lazy">
+          </button>
+          <figcaption>
+            <h2>Středoevropské vlasy</h2>
+            <p class="hair-product-length">53 cm</p>
+            <p>2 100,00 Kč</p>
+          </figcaption>
+        </figure>
+        <figure class="hair-product-card">
+          <button class="hair-photo-button" type="button" aria-label="Zvětšit fotografii středoevropských vlasů, délka 50 cm">
+            <img src="images/prodej%20vlasu%203.webp" alt="Středoevropské vlasy k prodeji, délka 50 cm" loading="lazy">
+          </button>
+          <figcaption>
+            <h2>Středoevropské vlasy</h2>
+            <p class="hair-product-length">50 cm</p>
+            <p>3 700,00 Kč</p>
+          </figcaption>
+        </figure>
+        <figure class="hair-product-card">
+          <button class="hair-photo-button" type="button" aria-label="Zvětšit fotografii středoevropských vlasů, délka 50 cm">
+            <img src="images/prodej%20vlasu%204.webp" alt="Středoevropské vlasy k prodeji, délka 50 cm" loading="lazy">
+          </button>
+          <figcaption>
+            <h2>Středoevropské vlasy</h2>
+            <p class="hair-product-length">50 cm</p>
+            <p>6 500,00 Kč</p>
+          </figcaption>
+        </figure>
+        <figure class="hair-product-card">
+          <button class="hair-photo-button" type="button" aria-label="Zvětšit fotografii středoevropských vlasů, délka 50 cm">
+            <img src="images/prodej%20vlasu%205.webp" alt="Středoevropské vlasy k prodeji, délka 50 cm" loading="lazy">
+          </button>
+          <figcaption>
+            <h2>Středoevropské vlasy</h2>
+            <p class="hair-product-length">50 cm</p>
+            <p>3 200,00 Kč</p>
+          </figcaption>
+        </figure>
+        <figure class="hair-product-card">
+          <button class="hair-photo-button" type="button" aria-label="Zvětšit fotografii středoevropských vlasů, délka 50 cm">
+            <img src="images/prodej%20vlasu%206.webp" alt="Středoevropské vlasy k prodeji, délka 50 cm" loading="lazy">
+          </button>
+          <figcaption>
+            <h2>Středoevropské vlasy</h2>
+            <p class="hair-product-length">50 cm</p>
+            <p>3 800,00 Kč</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+  <dialog class="method-lightbox" aria-label="Zvětšená fotografie">
+    <button class="lightbox-close" type="button" aria-label="Zavřít zvětšenou fotografii">×</button>
+    <img class="lightbox-image" alt="">
+  </dialog>
+  <script>
+    const lightbox = document.querySelector(".method-lightbox");
+    const lightboxImage = lightbox.querySelector(".lightbox-image");
+    let lightboxScrollPosition = { x: 0, y: 0 };
+    let activeProductCard = null;
+
+    document.querySelectorAll(".hair-photo-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        const image = button.querySelector("img");
+        activeProductCard = button.closest(".hair-product-card");
+        lightboxScrollPosition = { x: window.scrollX, y: window.scrollY };
+        lightboxImage.src = image.src;
+        lightboxImage.alt = image.alt;
+        lightbox.showModal();
+        requestAnimationFrame(() => {
+          window.scrollTo(lightboxScrollPosition.x, lightboxScrollPosition.y);
+        });
+      });
+    });
+
+    lightbox.addEventListener("close", () => {
+      const productCard = activeProductCard;
+      activeProductCard = null;
+      requestAnimationFrame(() => {
+        window.scrollTo(lightboxScrollPosition.x, lightboxScrollPosition.y);
+        if (productCard?.matches(":hover")) {
+          productCard.classList.add("suppress-hover");
+          productCard.addEventListener("pointerleave", () => {
+            productCard.classList.remove("suppress-hover");
+          }, { once: true });
+        }
+      });
+    });
+
+    lightbox.querySelector(".lightbox-close").addEventListener("click", () => {
+      lightbox.close();
+    });
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        lightbox.close();
+      }
+    });
+  </script>
+</body>
+</html>

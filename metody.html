@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Informace o výběru metody prodloužení vlasů.">
+  <title>Metody | Prodloužení vlasů</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="navigation.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">Vlasy <span>Laura</span><img class="brand-logo" src="logo.jpg" alt=""></a>
+    <button class="menu-toggle" type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Otevřít navigaci"><span></span><span></span><span></span></button>
+    <nav id="main-navigation" aria-label="Hlavní navigace">
+      <a href="index.html">Úvod</a>
+      <a href="metody.html" aria-current="page">Metody</a>
+      <a href="cenik.html">Ceník</a>
+      <a href="prodej-vlasu.html">Vlasy k prodeji</a>
+      <a href="fotogalerie.html">Fotogalerie</a>
+      <a href="reference.html">Reference</a>
+      <a href="pece.html">Péče před a po</a>
+      <a class="nav-contact" href="kontakt.html">Kontakt</a>
+    </nav>
+  </header>
+  <button class="nav-backdrop" type="button" aria-label="Zavřít navigaci" tabindex="-1" hidden></button>
+  <main class="page page-methods">
+    <p class="eyebrow">Najít to pravé řešení</p>
+    <h1>Metody prodloužení vlasů</h1>
+    <p class="lead">Každá metoda nabízí jiný způsob prodloužení nebo zahuštění. Při výběru záleží na vašich vlasech i na výsledku, kterého chcete dosáhnout.</p>
+    <section class="method-grid" aria-label="Metody prodloužení vlasů">
+      <article class="method-card">
+        <div class="method-photos">
+          <button class="method-image" type="button" data-image="images/Keratin%20za%20tepla%201.webp" data-alt="Ukázka keratinového prodloužení vlasů" aria-label="Zvětšit ukázku keratinového prodloužení vlasů">
+            <img src="images/Keratin%20za%20tepla%201.webp" alt="">
+          </button>
+          <button class="method-image" type="button" data-image="images/Keratin%20za%20tepla%202.webp" data-alt="Druhá ukázka keratinového prodloužení vlasů" aria-label="Zvětšit druhou ukázku keratinového prodloužení vlasů">
+            <img src="images/Keratin%20za%20tepla%202.webp" alt="">
+          </button>
+        </div>
+        <div class="method-copy">
+          <p class="eyebrow">01 / Keratin za tepla</p>
+          <h2>Keratin za tepla</h2>
+          <p>Keratinová metoda za tepla je oblíbený způsob prodloužení a zahuštění vlasů.</p>
+          <ul>
+            <li>Prameny vlasů se pomocí speciálního keratinu a tepla připevňují k vlastním vlasům, čímž vzniká pevný, ale zároveň velmi přirozený spoj.</li>
+            <li>Výsledkem jsou dlouhé, husté vlasy bez viditelných přechodů.</li>
+            <li>Metoda je šetrná, vhodná pro většinu typů vlasů a při správné péči vydrží několik měsíců.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="method-card">
+        <button class="method-image method-image--v-light" type="button" data-image="images/V-Light.webp" data-alt="Ukázka metody V-Light" aria-label="Zvětšit ukázku metody V-Light">
+          <img src="images/V-Light.webp" alt="">
+        </button>
+        <div class="method-copy">
+          <p class="eyebrow">02 / V-Light</p>
+          <h2>V-Light</h2>
+          <p>V-Light Hair Extensions je systém prodlužování vlasů, který se vyznačuje:</p>
+          <ul>
+            <li>jedinečností a vysokou účinností oproti jiným metodám,</li>
+            <li>použitím speciálního lepidla a zařízení V-Light,</li>
+            <li>přirozeným vzhledem prodloužených vlasů,</li>
+            <li>téměř neviditelnými spoji.</li>
+          </ul>
+          <p>V-Light metoda je ideální zejména pro:</p>
+          <ul>
+            <li>ženy s velmi řídkými vlasy,</li>
+            <li>prodloužení vlasů v horní části hlavy.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="method-card">
+        <button class="method-image" type="button" data-image="images/Tape-in%20p%C3%A1sky.webp" data-alt="Ukázka prodloužení metodou Tape-in" aria-label="Zvětšit ukázku prodloužení metodou Tape-in">
+          <img src="images/Tape-in%20p%C3%A1sky.webp" alt="">
+        </button>
+        <div class="method-copy">
+          <p class="eyebrow">03 / Tape-in pásky</p>
+          <h2>Tape-in pásky</h2>
+          <p>Jedná se o tzv. sendvičovou metodu prodlužování vlasů, kdy se mezi dva pásy široké cca 4,5 cm vloží tenký pramen vlasů.</p>
+          <p>Hlavní výhody tape-in pásků:</p>
+          <ul>
+            <li>vlasy se nepramínkují,</li>
+            <li>šetrná metoda k vlastním vlasům,</li>
+            <li>pohodlné a rychlé nasazení,</li>
+            <li>posun se provádí přibližně jednou za dva měsíce.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+  </main>
+  <dialog class="method-lightbox" aria-label="Zvětšená fotografie">
+    <button class="lightbox-close" type="button" aria-label="Zavřít zvětšenou fotografii">×</button>
+    <img class="lightbox-image" alt="">
+  </dialog>
+  <script>
+    const lightbox = document.querySelector(".method-lightbox");
+    const lightboxImage = lightbox.querySelector(".lightbox-image");
+    let lightboxScrollPosition = { x: 0, y: 0 };
+
+    document.querySelectorAll(".method-image").forEach((button) => {
+      button.addEventListener("click", () => {
+        lightboxScrollPosition = { x: window.scrollX, y: window.scrollY };
+        lightboxImage.src = button.dataset.image;
+        lightboxImage.alt = button.dataset.alt;
+        lightbox.showModal();
+        requestAnimationFrame(() => {
+          window.scrollTo(lightboxScrollPosition.x, lightboxScrollPosition.y);
+        });
+      });
+    });
+
+    lightbox.addEventListener("close", () => {
+      requestAnimationFrame(() => {
+        window.scrollTo(lightboxScrollPosition.x, lightboxScrollPosition.y);
+      });
+    });
+
+    lightbox.querySelector(".lightbox-close").addEventListener("click", () => {
+      lightbox.close();
+    });
+
+    lightbox.addEventListener("click", (event) => {
+      if (event.target === lightbox) {
+        lightbox.close();
+      }
+    });
+  </script>
+</body>
+</html>
